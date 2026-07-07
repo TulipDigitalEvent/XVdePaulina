@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="XV Años de Paulina Padilla García — 07 de Agosto de 2026" />
+  <title>XV Años · Paulina Padilla García</title>
+
+  <!-- FAVICON: íconos generados a partir de la portada -->
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+
+  <!-- OPEN GRAPH / VISTA PREVIA AL COMPARTIR (WhatsApp, Facebook, iMessage, etc.) -->
+  <!-- SITE_URL: reemplazar con la URL final de GitHub Pages, ej: https://tulipdigitalevent.github.io/paulina-xv -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="XV Años · Paulina Padilla García" />
+  <meta property="og:description" content="Una noche para recordar — 07 de Agosto de 2026, Tijuana. ¡Acompáñanos a celebrar!" />
+  <meta property="og:image" content="https://tulipdigitalevent.github.io/XVdePaulina/og-image.jpg" />
+  <meta property="og:url" content="https://tulipdigitalevent.github.io/XVdePaulina/" />
+  <meta property="og:locale" content="es_MX" />
+
+  <!-- Twitter Card (algunos clientes de mensajería usan este estándar como respaldo) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="XV Años · Paulina Padilla García" />
+  <meta name="twitter:description" content="Una noche para recordar — 07 de Agosto de 2026, Tijuana." />
+  <meta name="twitter:image" content="https://tulipdigitalevent.github.io/XVdePaulina/og-image.jpg" />
+
+  <!-- Google Fonts: Cormorant Garamond (display elegante) + Lato (cuerpo) + Great Vibes (firma) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       PRELOADER
+  ═══════════════════════════════════════ -->
+  <div id="preloader" aria-hidden="true">
+    <canvas id="preloader-canvas"></canvas>
+    <div class="preloader-content">
+      <div class="preloader-lantern">
+        <svg viewBox="0 0 60 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="30" y1="0" x2="30" y2="12" stroke="#D4AF37" stroke-width="1.5"/>
+          <rect x="10" y="12" width="40" height="52" rx="4" fill="#F5E6B2" fill-opacity="0.9" stroke="#D4AF37" stroke-width="1.2"/>
+          <rect x="10" y="12" width="40" height="52" rx="4" fill="url(#glow)"/>
+          <line x1="10" y1="33" x2="50" y2="33" stroke="#D4AF37" stroke-width="0.8"/>
+          <line x1="10" y1="54" x2="50" y2="54" stroke="#D4AF37" stroke-width="0.8"/>
+          <rect x="18" y="64" width="24" height="6" rx="2" fill="#D4AF37" fill-opacity="0.7"/>
+          <ellipse cx="30" cy="70" rx="8" ry="3" fill="#D4AF37" fill-opacity="0.5"/>
+          <defs>
+            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FFE680" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#FFE680" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+      <p class="preloader-name">Paulina</p>
+      <p class="preloader-sub">XV Años &nbsp;·&nbsp; 2026</p>
+      <div class="preloader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CANVAS DE LINTERNAS (global, fondo)
+  ═══════════════════════════════════════ -->
+  <canvas id="lanterns-canvas" aria-hidden="true"></canvas>
+
+  <!-- ═══════════════════════════════════════
+       PANTALLA DE BIENVENIDA
+  ═══════════════════════════════════════ -->
+  <section id="welcome-screen" aria-label="Bienvenida">
+    <div class="welcome-overlay"></div>
+    <div class="welcome-content reveal-group">
+      <p class="welcome-eyebrow">Una noche para recordar</p>
+      <h1 class="welcome-title">Bienvenidos a los<br><em>XV Años de Paulina</em></h1>
+      <div class="welcome-divider"><span></span></div>
+      <button id="open-invitation-btn" class="btn-primary" aria-label="Abrir la invitación">
+        <span class="btn-icon">✨</span> Abrir Invitación
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       TRANSICIÓN MÁGICA (al abrir la invitación)
+  ═══════════════════════════════════════ -->
+  <div id="magic-transition" aria-hidden="true">
+    <div class="magic-burst"></div>
+    <div class="magic-rays"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       INVITACIÓN PRINCIPAL
+  ═══════════════════════════════════════ -->
+  <main id="invitation" aria-label="Invitación XV Años Paulina">
+
+    <!-- ── SECCIÓN 1: PORTADA ─────────────────── -->
+    <section id="portada" class="section parallax-section" aria-label="Portada">
+      <!-- Imagen principal: reemplazar ./imagen-01-portada.jpg -->
+      <div class="section-bg" style="background-image: url('./imagen-01-portada.jpg')"></div>
+      <div class="section-overlay"></div>
+      <canvas class="section-particles" aria-hidden="true"></canvas>
+      <div class="portada-content">
+        <p class="eyebrow cinema-reveal">07 · VIII · 2026</p>
+        <h1 class="portada-name cinema-reveal">PAULINA</h1>
+        <p class="portada-subtitle cinema-reveal">Una noche para recordar,<br>un sueño por celebrar.</p>
+        <blockquote class="portada-quote cinema-reveal">
+          "Como las luces que iluminan el cielo en una noche mágica,<br class="br-desktop"> ha llegado el momento de celebrar un sueño hecho realidad."
+        </blockquote>
+        <a href="#musica" class="btn-primary cinema-reveal" aria-label="Ver invitación">
+          <span class="btn-icon">✨</span> Ver Invitación
+        </a>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN 2: MÚSICA ──────────────────── -->
+    <section id="musica" class="section section-light" aria-label="Música especial">
+      <div class="section-inner reveal-section">
+        <p class="section-eyebrow">Nuestra canción</p>
+        <h2 class="section-title">La melodía de esta noche</h2>
+
+        <div class="music-card">
+          <!-- Ícono central: anillos suaves + botón play/pause -->
+          <div class="music-orb">
+            <span class="music-orb-ring music-orb-ring--outer" aria-hidden="true"></span>
+            <span class="music-orb-ring music-orb-ring--inner" aria-hidden="true"></span>
+
+            <button class="music-playpause" id="play-btn" aria-label="Reproducir canción" aria-pressed="false">
+              <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <polygon points="8,5 19,12 8,19"/>
+              </svg>
+              <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none">
+                <rect x="6" y="5" width="4" height="14" rx="1"/>
+                <rect x="14" y="5" width="4" height="14" rx="1"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="music-info">
+            <p class="music-label">Canción especial</p>
+            <p class="music-track">I See The Light</p>
+            <p class="music-artist">Mandy Moore &amp; Zachary Levi</p>
+            <p class="music-hint" id="music-hint-text">Toca ♪ para escucharla aquí mismo</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN 3: CALENDARIO ──────────────── -->
+    <section id="calendario" class="section parallax-section" aria-label="Fecha del evento">
+      <!-- Imagen de fondo: reemplazar ./imagen-02-calendario.jpg -->
+      <div class="section-bg" style="background-image: url('./imagen-02-calendario.jpg')"></div>
+      <div class="section-overlay"></div>
+      <div class="section-inner reveal-section">
+        <p class="section-eyebrow light">Reserva esta fecha</p>
+        <h2 class="section-title light">Agosto 2026</h2>
+        <!-- Ilustración Sol de Corona (SVG inline) -->
+        <div class="corona-sun" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.95">
+              <!-- Rayos del sol -->
+              <line x1="60" y1="4" x2="60" y2="20" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="60" y1="100" x2="60" y2="116" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="4" y1="60" x2="20" y2="60" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="100" y1="60" x2="116" y2="60" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="18" y1="18" x2="29" y2="29" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
+              <line x1="91" y1="91" x2="102" y2="102" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
+              <line x1="102" y1="18" x2="91" y2="29" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
+              <line x1="18" y1="102" x2="29" y2="91" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
+              <line x1="10" y1="38" x2="24" y2="44" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="96" y1="76" x2="110" y2="82" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="82" y1="10" x2="76" y2="24" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="44" y1="96" x2="38" y2="110" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="110" y1="38" x2="96" y2="44" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="10" y1="82" x2="24" y2="76" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="38" y1="10" x2="44" y2="24" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="76" y1="96" x2="82" y2="110" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- Círculo central -->
+              <circle cx="60" cy="60" r="24" fill="#D4AF37" fill-opacity="0.18" stroke="#D4AF37" stroke-width="1.8"/>
+              <circle cx="60" cy="60" r="16" fill="#D4AF37" fill-opacity="0.3"/>
+              <!-- Cara del sol (sutil) -->
+              <circle cx="54" cy="57" r="2" fill="#D4AF37"/>
+              <circle cx="66" cy="57" r="2" fill="#D4AF37"/>
+              <path d="M54 65 Q60 70 66 65" stroke="#D4AF37" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+        <!-- Mini calendario ilustrado -->
+        <div class="calendar-widget">
+          <div class="cal-header">
+            <span>Agosto</span><span>2026</span>
+          </div>
+          <div class="cal-days-header">
+            <span>D</span><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span>
+          </div>
+          <div class="cal-grid">
+            <!-- Semana 1: agosto 2026 empieza sábado -->
+            <span></span><span></span><span></span><span></span><span></span><span></span><span>1</span>
+            <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span class="cal-highlight" aria-label="7 de agosto, día del evento">7</span><span>8</span>
+            <span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+            <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span>
+            <span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span>
+            <span>30</span><span>31</span>
+          </div>
+        </div>
+        <p class="calendar-caption light">"Reserva esta fecha para una noche mágica."</p>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN 4: CUENTA REGRESIVA ───────── -->
+    <section id="cuenta-regresiva" class="section section-dark-soft" aria-label="Cuenta regresiva">
+      <!-- Imagen de fondo: reemplazar ./imagen-03-cuenta-regresiva.jpg -->
+      <div class="section-bg" style="background-image: url('./imagen-03-cuenta-regresiva.jpg')"></div>
+      <div class="section-overlay-dark"></div>
+      <div class="section-inner reveal-section">
+        <p class="section-eyebrow light">Faltan solo</p>
+        <h2 class="section-title light">El gran momento se acerca</h2>
+        <div class="countdown" id="countdown" role="timer" aria-label="Cuenta regresiva al evento">
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-days">00</span>
+            <span class="cd-label">Días</span>
+          </div>
+          <span class="cd-sep" aria-hidden="true">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-hours">00</span>
+            <span class="cd-label">Horas</span>
+          </div>
+          <span class="cd-sep" aria-hidden="true">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-minutes">00</span>
+            <span class="cd-label">Minutos</span>
+          </div>
+          <span class="cd-sep" aria-hidden="true">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-seconds">00</span>
+            <span class="cd-label">Segundos</span>
+          </div>
+        </div>
+        <p class="cd-target light">07 · Agosto · 2026 &nbsp;·&nbsp; 4:00 PM</p>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN 5: MI HISTORIA ─────────────── -->
+    <section id="historia" class="section section-light" aria-label="Mi historia en fotografías">
+      <div class="section-inner reveal-section">
+        <p class="section-eyebrow">Mi historia</p>
+        <h2 class="section-title">Momentos que me trajeron aquí</h2>
+        <p class="section-body">"Cada momento vivido me ha llevado hasta esta noche tan especial."</p>
+        <!-- Galería deslizable con lightbox -->
+        <!-- Imágenes: reemplazar ./imagen-galeria-01.jpg … imagen-galeria-08.jpg -->
+        <div class="gallery-strip" id="gallery" role="list">
+          <div class="gallery-item" data-index="0" role="listitem" tabindex="0" aria-label="Abrir fotografía 1">
+            <img src="./imagen-galeria-01.jpg" alt="Momento especial de Paulina 1" loading="lazy"/>
+          </div>
+          <div class="gallery-item" data-index="1" role="listitem" tabindex="0" aria-label="Abrir fotografía 2">
+            <img src="./imagen-galeria-02.jpg" alt="Momento especial de Paulina 2" loading="lazy"/>
+          </div>
+          <div class="gallery-item" data-index="2" role="listitem" tabindex="0" aria-label="Abrir fotografía 3">
+            <img src="./imagen-galeria-03.jpg" alt="Momento especial de Paulina 3" loading="lazy"/>
+          </div>
+          <div class="gallery-item" data-index="3" role="listitem" tabindex="0" aria-label="Abrir fotografía 4">
+            <img src="./imagen-galeria-04.jpg" alt="Momento especial de Paulina 4" loading="lazy"/>
+          </div>
+          <div class="gallery-item" data-index="4" role="listitem" tabindex="0" aria-label="Abrir fotografía 5">
+            <img src="./imagen-galeria-05.jpg" alt="Momento especial de Paulina 5" loading="lazy"/>
+          </div>
+          <div class="gallery-item" data-index="5" role="listitem" tabindex="0" aria-label="Abrir fotografía 6">
+            <img src="./imagen-galeria-06.jpg" alt="Momento especial de Paulina 6" loading="lazy"/>
+          </div>
+          <div class="gallery-item" data-index="6" role="listitem" tabindex="0" aria-label="Abrir fotografía 7">
+            <img src="./imagen-galeria-07.jpg" alt="Momento especial de Paulina 7" loading="lazy"/>
+          </div>
+          <div class="gallery-item" data-index="7" role="listitem" tabindex="0" aria-label="Abrir fotografía 8">
+            <img src="./imagen-galeria-08.jpg" alt="Momento especial de Paulina 8" loading="lazy"/>
+          </div>
+          <div class="gallery-item" data-index="8" role="listitem" tabindex="0" aria-label="Abrir fotografía 9">
+            <img src="./imagen-galeria-09.jpg" alt="Momento especial de Paulina 9" loading="lazy"/>
+          </div>
+          <div class="gallery-item" data-index="9" role="listitem" tabindex="0" aria-label="Abrir fotografía 10">
+            <img src="./imagen-galeria-10.jpg" alt="Momento especial de Paulina 10" loading="lazy"/>
+          </div>
+        </div>
+        <p class="gallery-hint" aria-hidden="true">← Desliza para ver más →</p>
+      </div>
+      <!-- Lightbox -->
+      <div id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizador de fotografías" hidden>
+        <button class="lb-close" id="lb-close" aria-label="Cerrar">&times;</button>
+        <button class="lb-nav lb-prev" id="lb-prev" aria-label="Anterior">&#8249;</button>
+        <div class="lb-img-wrap">
+          <img id="lb-img" src="" alt="Fotografía ampliada"/>
+        </div>
+        <button class="lb-nav lb-next" id="lb-next" aria-label="Siguiente">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN 6: FAMILIA ─────────────────── -->
+    <section id="familia" class="section section-light" aria-label="Familia">
+      <div class="section-inner reveal-section">
+        <p class="section-eyebrow">Mi pilar</p>
+        <h2 class="section-title">Con la bendición de mi familia</h2>
+        <p class="section-body">"Gracias a quienes han guiado mi camino con amor y han sido parte de cada uno de mis sueños."</p>
+        <!-- Foto completa, sin recorte, todas las personas visibles -->
+        <div class="family-img-wrap">
+          <img src="./imagen-05-familia.jpg" alt="La familia de Paulina" loading="lazy"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN 7: PADRINOS ────────────────── -->
+    <section id="padrinos" class="section section-light" aria-label="Padrinos">
+      <!-- Imagen de fondo sutil: reemplazar ./imagen-06-padrinos.jpg -->
+      <div class="section-bg-soft" style="background-image: url('./imagen-06-padrinos.jpg')"></div>
+      <div class="section-inner reveal-section">
+        <p class="section-eyebrow">Quienes hacen posible esta noche</p>
+        <h2 class="section-title">Padrinos</h2>
+        <div class="sponsors-grid">
+          <div class="sponsor-card">
+            <div class="sponsor-ornament" aria-hidden="true">❧</div>
+            <p class="sponsor-name">Ramón Fonseca</p>
+            <p class="sponsor-amp">&amp;</p>
+            <p class="sponsor-name">Naycidi Herrera</p>
+          </div>
+          <div class="sponsor-card">
+            <div class="sponsor-ornament" aria-hidden="true">❧</div>
+            <p class="sponsor-name">Nayeli Fonseca</p>
+            <p class="sponsor-amp">&amp;</p>
+            <p class="sponsor-name">Federico JLoc</p>
+          </div>
+        </div>
+        <p class="section-body center">"Con gratitud infinita por su amor y generosidad."</p>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN 8: CEREMONIA ───────────────── -->
+    <section id="ceremonia" class="section parallax-section" aria-label="Ceremonia religiosa">
+      <!-- Imagen de fondo: reemplazar ./imagen-07-ceremonia.jpg -->
+      <div class="section-bg" style="background-image: url('./imagen-07-ceremonia.jpg')"></div>
+      <div class="section-overlay"></div>
+      <div class="section-inner reveal-section">
+        <p class="section-eyebrow light">⛪ Ceremonia religiosa</p>
+        <h2 class="section-title light">Parroquia San Francisco Javier</h2>
+        <div class="event-detail-card">
+          <div class="edc-row"><span class="edc-icon" aria-hidden="true">📍</span><span>Colonia Juárez, Tijuana, Baja California</span></div>
+          <div class="edc-row"><span class="edc-icon" aria-hidden="true">📅</span><span>Viernes 07 de Agosto de 2026</span></div>
+          <div class="edc-row"><span class="edc-icon" aria-hidden="true">🕓</span><span>4:00 PM</span></div>
+        </div>
+        <!-- CEREMONIA_MAPS_URL: reemplazar el href con el enlace de Google Maps -->
+        <a href="https://maps.google.com/?q=Parroquia+San+Francisco+Javier+Tijuana" target="_blank" rel="noopener" class="btn-primary" id="ceremony-map-btn" aria-label="Ver ubicación en el mapa">
+          📍 Ver ubicación
+        </a>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN 9: PROGRAMA ────────────────── -->
+    <section id="programa" class="section section-light" aria-label="Programa del evento">
+      <div class="section-inner reveal-section">
+        <p class="section-eyebrow">Una noche perfecta</p>
+        <h2 class="section-title">Programa del evento</h2>
+        <ol class="itinerary" aria-label="Itinerario del evento">
+          <li class="itinerary-item">
+            <div class="it-time">4:00 <span>PM</span></div>
+            <div class="it-dot" aria-hidden="true"></div>
+            <div class="it-content">
+              <span class="it-icon" aria-hidden="true">⛪</span>
+              <p class="it-title">Ceremonia Religiosa</p>
+              <p class="it-place">Parroquia San Francisco Javier</p>
+            </div>
+          </li>
+          <li class="itinerary-item">
+            <div class="it-time">8:00 <span>PM</span></div>
+            <div class="it-dot" aria-hidden="true"></div>
+            <div class="it-content">
+              <span class="it-icon" aria-hidden="true">🎉</span>
+              <p class="it-title">Recepción</p>
+              <p class="it-place">Jardín Secreto</p>
+            </div>
+          </li>
+          <li class="itinerary-item">
+            <div class="it-time">8:30 <span>PM</span></div>
+            <div class="it-dot" aria-hidden="true"></div>
+            <div class="it-content">
+              <span class="it-icon" aria-hidden="true">🍽️</span>
+              <p class="it-title">Cena · Banquete</p>
+              <p class="it-place">Jardín Secreto</p>
+            </div>
+          </li>
+          <li class="itinerary-item">
+            <div class="it-time">Noche</div>
+            <div class="it-dot it-dot-star" aria-hidden="true">✦</div>
+            <div class="it-content">
+              <span class="it-icon" aria-hidden="true">✨</span>
+              <p class="it-title">Celebración</p>
+              <p class="it-place">Música · Baile · Magia</p>
+            </div>
+          </li>
+          <li class="itinerary-item">
+            <div class="it-time">2:00 <span>AM</span></div>
+            <div class="it-dot" aria-hidden="true"></div>
+            <div class="it-content">
+              <span class="it-icon" aria-hidden="true">🌙</span>
+              <p class="it-title">Fin del evento</p>
+              <p class="it-place">Hasta la próxima noche mágica</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN 10: RECEPCIÓN ──────────────── -->
+    <section id="recepcion" class="section parallax-section section-decorative" aria-label="Recepción">
+      <!-- Fondo decorativo temporal: aún no hay foto real de Jardín Secreto.
+           Reemplazar agregando ./imagen-08-recepcion.jpg y descomentando la línea de abajo. -->
+      <!-- <div class="section-bg" style="background-image: url('./imagen-08-recepcion.jpg')"></div> -->
+      <div class="section-overlay"></div>
+      <div class="section-inner reveal-section">
+        <p class="section-eyebrow light">🎉 Recepción</p>
+        <h2 class="section-title light">Jardín Secreto</h2>
+        <div class="event-detail-card">
+          <div class="edc-row"><span class="edc-icon" aria-hidden="true">🕗</span><span>8:00 PM — 2:00 AM</span></div>
+          <div class="edc-row"><span class="edc-icon" aria-hidden="true">📅</span><span>Viernes 07 de Agosto de 2026</span></div>
+        </div>
+        <!-- URL de recepción fija según el brief -->
+        <a href="https://maps.app.goo.gl/3YdFWLRQhAQmbXDv8?g_st=ic" target="_blank" rel="noopener" class="btn-primary" id="reception-map-btn" aria-label="Ver ubicación de la recepción">
+          🎉 Ver ubicación del evento
+        </a>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN 11: DRESS CODE ─────────────── -->
+    <section id="dress-code" class="section section-light" aria-label="Código de vestimenta">
+      <!-- Imagen de fondo sutil: reemplazar ./imagen-09-dress-code.jpg -->
+      <div class="section-bg-soft" style="background-image: url('./imagen-09-dress-code.jpg')"></div>
+      <div class="section-inner reveal-section">
+        <p class="section-eyebrow">Viste a la altura de la noche</p>
+        <h2 class="section-title">Código de vestimenta</h2>
+        <div class="dress-main-badge">FORMAL</div>
+        <p class="section-body center">"Acompáñanos con tu mejor atuendo para esta noche tan especial."</p>
+        <div class="dress-reserved">
+          <p class="dress-reserved-label">Colores reservados para la quinceañera:</p>
+          <div class="dress-colors">
+            <div class="dress-color-chip forbidden">
+              <div class="chip-swatch" style="background:#C0392B"></div>
+              <span>Rojo</span>
+            </div>
+            <div class="dress-color-chip forbidden">
+              <div class="chip-swatch" style="background:#C8A2D8"></div>
+              <span>Lila / Lavanda</span>
+            </div>
+            <div class="dress-color-chip forbidden">
+              <div class="chip-swatch" style="background:#27AE60"></div>
+              <span>Verde Esmeralda</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN 12: CONFIRMACIÓN ───────────── -->
+    <section id="confirmacion" class="section parallax-section" aria-label="Confirmación de asistencia">
+      <!-- Imagen de fondo: reemplazar ./imagen-10-confirmacion.jpg -->
+      <div class="section-bg" style="background-image: url('./imagen-10-confirmacion.jpg')"></div>
+      <div class="section-overlay"></div>
+      <div class="section-inner reveal-section">
+        <p class="section-eyebrow light">Tu presencia importa</p>
+        <h2 class="section-title light">¿Nos acompañarás?</h2>
+        <!-- Carta interactiva: toca para abrir el sobre y revelar el mensaje -->
+        <div class="letter-scene" id="letter-scene" role="button" tabindex="0" aria-label="Toca para abrir la carta">
+          <div class="letter-envelope" id="letter-envelope">
+            <!-- Solapa superior -->
+            <div class="letter-flap" id="letter-flap">
+              <div class="letter-flap-inner"></div>
+            </div>
+            <!-- Cuerpo del sobre -->
+            <div class="letter-body">
+              <div class="letter-seal" id="letter-seal" aria-hidden="true">✦</div>
+            </div>
+            <!-- Carta que emerge -->
+            <div class="letter-card" id="letter-card">
+              <p class="letter-card-eyebrow">✨ Con todo mi cariño</p>
+              <p class="letter-card-text">"Tu presencia hará brillar esta celebración."</p>
+              <div class="letter-card-divider"></div>
+              <p class="letter-card-sign">Paulina Padilla García</p>
+              <p class="letter-card-date">07 · VIII · 2026</p>
+            </div>
+          </div>
+          <p class="letter-hint" id="letter-hint">Toca para abrir ✉️</p>
+        </div>
+        <!-- WHATSAPP_URL: reemplazar con el enlace de WhatsApp -->
+        <!-- Número configurado: 664 805 3160 -->
+        <a href="https://wa.me/526648053160?text=Hola%20Paulina%2C%20confirmo%20mi%20asistencia%20a%20tus%20XV%20A%C3%B1os%20%F0%9F%8C%9F" target="_blank" rel="noopener" class="btn-primary" id="whatsapp-confirm-btn" aria-label="Confirmar asistencia por WhatsApp">
+          💌 Confirmar asistencia
+        </a>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN 13: COMPARTE RECUERDOS ─────── -->
+    <section id="recuerdos" class="section section-light" aria-label="Comparte tus recuerdos">
+      <!-- Imagen de fondo sutil: reemplazar ./imagen-11-recuerdos.jpg -->
+      <div class="section-bg-soft" style="background-image: url('./imagen-11-recuerdos.jpg')"></div>
+      <div class="section-inner reveal-section">
+        <p class="section-eyebrow">Tus fotos, nuestros tesoros</p>
+        <h2 class="section-title">Comparte tus recuerdos</h2>
+        <!-- Polaroids decorativos -->
+        <div class="polaroids" aria-hidden="true">
+          <div class="polaroid p1">
+            <div class="polaroid-img">
+              <img src="./imagen-polaroid-01.jpg" alt="Paulina con su nana"/>
+            </div>
+            <p>Cada momento</p>
+          </div>
+          <div class="polaroid p2">
+            <div class="polaroid-img">
+              <img src="./imagen-polaroid-02.jpg" alt="Paulina celebrando con su familia"/>
+            </div>
+            <p>merece ser recordado</p>
+          </div>
+          <div class="polaroid p3">
+            <div class="polaroid-img">
+              <img src="./imagen-polaroid-03.jpg" alt="Paulina con sus amigas"/>
+            </div>
+            <p>comparte el tuyo</p>
+          </div>
+        </div>
+        <p class="section-body center">"Si capturaste fotografías o videos durante la celebración, nos encantaría conservar esos momentos especiales."</p>
+        <!-- Álbum de Google Photos para subir fotos y videos -->
+        <a href="https://photos.google.com/share/AF1QipN_N7O6ixhMxVElgS9WP9joRxe0TVJZy65DHVb-gcItuPIZQmgh2IvXRoe-Zw2lgg?key=enhPcm14S1kwWFowcVVvZFU3b0pQMWZkUFgwV2J3" target="_blank" rel="noopener" class="btn-primary" id="recuerdos-btn" aria-label="Subir fotos y videos">
+          📸 Subir fotos y videos
+        </a>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN 14: MENSAJES ───────────────── -->
+    <section id="mensajes" class="section parallax-section" aria-label="Deja un mensaje para Paulina">
+      <!-- Imagen de fondo: reemplazar ./imagen-12-mensajes.jpg -->
+      <div class="section-bg" style="background-image: url('./imagen-12-mensajes.jpg')"></div>
+      <div class="section-overlay"></div>
+      <div class="section-inner reveal-section">
+        <!-- Sol de Corona pequeño -->
+        <div class="corona-sun small" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="60" y1="4" x2="60" y2="20" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="60" y1="100" x2="60" y2="116" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="4" y1="60" x2="20" y2="60" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="100" y1="60" x2="116" y2="60" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="18" y1="18" x2="29" y2="29" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
+            <line x1="91" y1="91" x2="102" y2="102" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
+            <line x1="102" y1="18" x2="91" y2="29" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
+            <line x1="18" y1="102" x2="29" y2="91" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="60" cy="60" r="24" fill="#D4AF37" fill-opacity="0.18" stroke="#D4AF37" stroke-width="1.8"/>
+            <circle cx="60" cy="60" r="16" fill="#D4AF37" fill-opacity="0.3"/>
+            <circle cx="54" cy="57" r="2" fill="#D4AF37"/>
+            <circle cx="66" cy="57" r="2" fill="#D4AF37"/>
+            <path d="M54 65 Q60 70 66 65" stroke="#D4AF37" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="section-eyebrow light">Para Paulina</p>
+        <h2 class="section-title light">Déjale un mensaje</h2>
+        <p class="section-body light">"Tu mensaje hará este día aún más especial."</p>
+        <!-- Google Form para dejar mensajes a Paulina -->
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfj2cp4lJ25IJUvY8yGGEskAzoCiHAjS8TEmn4Wsii1iZaP4A/viewform?usp=publish-editor" target="_blank" rel="noopener" class="btn-primary" id="mensajes-btn" aria-label="Escribir mensaje para Paulina">
+          ☀️ Escribir mensaje
+        </a>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN 15: DESPEDIDA ──────────────── -->
+    <section id="despedida" class="section parallax-section despedida-section" aria-label="Despedida">
+      <!-- Imagen de fondo: reemplazar ./imagen-13-despedida.jpg -->
+      <div class="section-bg" style="background-image: url('./imagen-13-despedida.jpg')"></div>
+      <div class="section-overlay-deep"></div>
+      <!-- Las linternas se renderizan en el canvas global, este div es para posicionamiento -->
+      <div class="section-inner reveal-section despedida-inner">
+        <p class="despedida-quote-main">¡Gracias por ser parte de mi historia! ✨</p>
+        <p class="section-body light center despedida-thanks">
+          "Gracias por acompañarme en uno de los días más importantes de mi vida."
+        </p>
+        <div class="despedida-divider" aria-hidden="true"><span></span></div>
+        <p class="despedida-firma">Paulina Padilla García</p>
+        <p class="despedida-fecha">07 de Agosto de 2026</p>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN FINAL: ACCESOS RÁPIDOS ─────── -->
+    <section id="accesos" class="section section-champagne" aria-label="Accesos rápidos">
+      <div class="section-inner reveal-section">
+        <p class="section-eyebrow">Todo en un solo lugar</p>
+        <h2 class="section-title">Accesos rápidos</h2>
+        <div class="quick-links">
+          <!-- Los href se actualizan dinámicamente por script.js con las variables configurables -->
+          <a href="https://wa.me/526648053160?text=Hola%20Paulina%2C%20confirmo%20mi%20asistencia%20a%20tus%20XV%20A%C3%B1os%20%F0%9F%8C%9F" target="_blank" rel="noopener" class="quick-link" id="ql-confirm">
+            <span class="ql-icon" aria-hidden="true">💌</span>
+            <span>Confirmar asistencia</span>
+          </a>
+          <a href="https://maps.google.com/?q=Parroquia+San+Francisco+Javier+Tijuana" target="_blank" rel="noopener" class="quick-link" id="ql-ceremony">
+            <span class="ql-icon" aria-hidden="true">📍</span>
+            <span>Ver ceremonia</span>
+          </a>
+          <a href="https://maps.app.goo.gl/3YdFWLRQhAQmbXDv8?g_st=ic" target="_blank" rel="noopener" class="quick-link" id="ql-reception">
+            <span class="ql-icon" aria-hidden="true">🎉</span>
+            <span>Ver recepción</span>
+          </a>
+          <a href="https://photos.google.com/share/AF1QipN_N7O6ixhMxVElgS9WP9joRxe0TVJZy65DHVb-gcItuPIZQmgh2IvXRoe-Zw2lgg?key=enhPcm14S1kwWFowcVVvZFU3b0pQMWZkUFgwV2J3" target="_blank" rel="noopener" class="quick-link" id="ql-photos">
+            <span class="ql-icon" aria-hidden="true">📸</span>
+            <span>Compartir fotos</span>
+          </a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfj2cp4lJ25IJUvY8yGGEskAzoCiHAjS8TEmn4Wsii1iZaP4A/viewform?usp=publish-editor" target="_blank" rel="noopener" class="quick-link" id="ql-message">
+            <span class="ql-icon" aria-hidden="true">☀️</span>
+            <span>Dejar mensaje</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- /invitation -->
+
+  <!-- ── BOTONES FLOTANTES ─────────────────────── -->
+  <!-- iframe oculto de YouTube: solo se usa el audio, no el video.
+       La API de YouTube IFrame controla play/pause desde el botón de la sección "Nuestra canción". -->
+  <iframe id="yt-audio"
+    src="https://www.youtube.com/embed/hYbHzzWmKUs?enablejsapi=1&autoplay=0&controls=0&rel=0&modestbranding=1&playsinline=1"
+    style="position:absolute;top:0;left:0;width:1px;height:1px;opacity:0;pointer-events:none;"
+    allow="autoplay"
+    title="Audio de I See The Light">
+  </iframe>
+
+  <!-- WhatsApp flotante siempre visible -->
+  <a href="https://wa.me/526648053160?text=Hola%20Paulina%2C%20confirmo%20mi%20asistencia%20a%20tus%20XV%20A%C3%B1os%20%F0%9F%8C%9F" target="_blank" rel="noopener" class="fab fab-whatsapp" id="fab-wa" aria-label="Confirmar asistencia por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+  <!-- Volver arriba -->
+  <button class="fab fab-top" id="fab-top" aria-label="Volver arriba" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
